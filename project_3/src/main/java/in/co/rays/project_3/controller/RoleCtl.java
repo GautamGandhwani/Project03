@@ -22,6 +22,7 @@ import in.co.rays.project_3.util.ServletUtility;
 
 /**
  * role functionality controller.to perform add,delete ,update operation
+ * 
  * @author Gautam Gandhwani
  *
  */
@@ -39,7 +40,7 @@ public class RoleCtl extends BaseCtl {
 		log.debug("RoleCtl Method validate Started");
 
 		boolean pass = true;
-         System.out.println(request.getParameter("name")+"......"+request.getParameter("description"));
+		System.out.println(request.getParameter("name") + "......" + request.getParameter("description"));
 		if (DataValidator.isNull(request.getParameter("name"))) {
 			request.setAttribute("name", PropertyReader.getValue("error.require", "Name"));
 			pass = false;
@@ -61,7 +62,7 @@ public class RoleCtl extends BaseCtl {
 
 		dto.setName(DataUtility.getString(request.getParameter("name")));
 		dto.setDescription(DataUtility.getString(request.getParameter("description")));
-		populateBean(dto,request);
+		populateBean(dto, request);
 		return dto;
 
 	}
@@ -87,7 +88,8 @@ public class RoleCtl extends BaseCtl {
 		ServletUtility.forward(getView(), request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws IOException, ServletException {
 		String op = request.getParameter("operation");
 		long id = DataUtility.getLong(request.getParameter("id"));
 		RoleModelInt model = ModelFactory.getInstance().getRoleModel();
@@ -95,17 +97,19 @@ public class RoleCtl extends BaseCtl {
 		if (OP_SAVE.equalsIgnoreCase(op) || OP_UPDATE.equalsIgnoreCase(op)) {
 
 			RoleDTO dto = (RoleDTO) populateDTO(request);
-			System.out.println("kkkkkkkkkkkk"+dto);
-          //  System.out.println("kkkkk"+dto.getName()+"sdf"+dto.getDescription());
+			System.out.println("kkkkkkkkkkkk" + dto);
+			// System.out.println("kkkkk"+dto.getName()+"sdf"+dto.getDescription());
 			try {
 				if (id > 0) {
 					model.update(dto);
 					ServletUtility.setSuccessMessage("Successfully Updated", request);
 				} else {
 					try {
-						//long pk = 
-								model.add(dto);
+						// long pk =
+						model.add(dto);
 						ServletUtility.setSuccessMessage("Successfully Saved", request);
+						ServletUtility.forward(getView(), request, response);
+						return;
 					} catch (ApplicationException e) {
 						log.error(e);
 						ServletUtility.handleException(e, request, response);

@@ -110,6 +110,8 @@ public class ProductCtl extends BaseCtl {
 					// long pk
 					model.add(dto);
 					ServletUtility.setSuccessMessage("Record Successfully Saved", request);
+					ServletUtility.forward(getView(), request, response);
+					return;
 				}
 				ServletUtility.setDto(dto, request);
 			} catch (ApplicationException e) {

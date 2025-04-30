@@ -156,6 +156,8 @@ public class TimeTableCtl extends BaseCtl{
 							model.add(dto);
 							ServletUtility.setDto(dto, request);
 							ServletUtility.setSuccessMessage("Data is successfully saved", request);
+							ServletUtility.forward(getView(), request, response);
+							return;
 						} else {
 							ServletUtility.setDto(dto, request);
 							ServletUtility.setErrorMessage("Exam already exist!", request);

@@ -190,6 +190,8 @@ public class StudentCtl extends BaseCtl {
 						System.out.println("add dopsot");
 						model.add(dto);
 						ServletUtility.setSuccessMessage("Data is successfully saved", request);
+						ServletUtility.forward(getView(), request, response);
+						return;
 					} catch (ApplicationException e) {
 						log.error(e);
 						ServletUtility.handleException(e, request, response);
