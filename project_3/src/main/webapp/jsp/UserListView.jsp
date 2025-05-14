@@ -1,4 +1,3 @@
-
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="in.co.rays.project_3.model.ModelFactory"%>
@@ -21,13 +20,12 @@
 <style>
 .hm {
 	background-image: url('<%=ORSView.APP_CONTEXT%>/img/list2.jpg');
-	
 	background-repeat: no-repeat;
-	background-attachment: fixed; 
+	background-attachment: fixed;
 	background-size: cover;
 	padding-top: 85px;
-	
-    /*  background-size: 100%; */
+
+	/*  background-size: 100%; */
 }
 
 .p1 {
@@ -50,7 +48,6 @@
 			<%
 				List list1 = (List) request.getAttribute("roleList");
 			%>
-
 
 			<%
 				int pageNo = ServletUtility.getPageNo(request);
@@ -233,7 +230,6 @@
 					style="font-size: 17px" value="<%=UserListCtl.OP_BACK%>">
 			</div>
 
-
 			<%
 				}
 			%>
@@ -254,11 +250,7 @@
 			<input type="hidden" name="pageNo" value="<%=pageNo%>"> <input
 				type="hidden" name="pageSize" value="<%=pageSize%>">
 		</form>
-
-
 	</div>
-
-
 </body>
 <%@include file="FooterView.jsp"%>
 </html>
