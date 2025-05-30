@@ -28,7 +28,7 @@
 
 <style type="text/css">
 .aj {
-	background-image: linear-gradient(to bottom right, grey, black );
+	background-image: linear-gradient(to bottom right, grey, black);
 }
 </style>
 </head>
@@ -248,7 +248,7 @@
 							} else {
 						%>
 						<a class="dropdown-item" href="<%=ORSView.LOGIN_CTL%>"><i
-							class="fa fa-sign-in-alt">Login</i> <a class="dropdown-item"
+							class="fa fa-sign-in-alt">Login</i> </a><a class="dropdown-item"
 							href="<%=ORSView.USER_REGISTRATION_CTL%>"><i
 								class="fa fa-registered"></i> User Registration</a>
 					</div></li>
